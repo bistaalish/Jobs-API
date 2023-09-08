@@ -1,9 +1,11 @@
 const User = require('../models/User');
 const {StatusCodes} = require('http-status-codes');
+const {BadRequestError} = require('../errors');
 
 const register = async (req, res) => {
-    const newUser = req.body
-    const user = await User.create({...newUser})
+    const {name,email,password} = req.body
+    const user = await User.create({name,email,password})
+    console.log(user)
     res.status(StatusCodes.CREATED).json({ user })    
 }
 
