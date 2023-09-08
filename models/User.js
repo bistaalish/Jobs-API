@@ -47,5 +47,11 @@ UserSchema.methods.getName = function () {
     return this.name
 }
 
+// Compare password
+UserSchema.methods.comparePassword = async function (pass) {
+    const isMatch = await bcrypt.compare(pass,this.password)
+    return isMatch
+}
+
 // Compile model from schema
 module.exports = mongoose.model('Users', UserSchema );
