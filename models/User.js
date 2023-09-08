@@ -43,8 +43,8 @@ UserSchema.methods.createJWT = function () {
     )
 }
 // get Name
-UserSchema.method.getName = function () {
-    return this.getName
+UserSchema.methods.getName = function () {
+    return this.name
 }
 
 // Compile model from schema
