@@ -47,7 +47,7 @@ const deleteJob = async (req,res) => {
   const {user:{userId},
   params:{id: jobId}
 } = req
-  const job = await Job.findByIdAndRemove({createdBy:userId,_id:jobId})
+  const job = await Job.findOneAndRemove({createdBy:userId,_id:jobId})
   if (!job){
     throw new NotFoundError(`No job with id: ${jobId}`)
   }
